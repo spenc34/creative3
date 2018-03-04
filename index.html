@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Trivia Game</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Trivia Game</h1>
+      <div class="container" v-if="loaded">
+        <h2>{{question}}</h2>
+        <div v-if="type === 'multiple'">
+          <button id="button1" type="button" class="btn btn-light" v-on:click="button1Pressed">
+            {{answers[0]}}
+          </button>
+          <button id="button2" type="button" class="btn btn-light" v-on:click="button2Pressed">
+            {{answers[1]}}
+          </button>
+          <button id="button3" type="button" class="btn btn-light" v-on:click="button3Pressed">
+            {{answers[2]}}
+          </button>
+          <button id="button4" type="button" class="btn btn-light" v-on:click="button4Pressed">
+            {{answers[3]}}
+          </button>
+        </div>
+        <div v-else>
+          <button id="trueButton" type="button" class="btn btn-light" v-on:click="truePressed">
+            True
+          </button>
+          <button id="falseButton" type="button" class="btn btn-light" v-on:click="falsePressed">
+            False
+          </button>
+        </div>
+        <div v-if="answered && !done">
+          <button type="button" class="btn btn-primary" v-on:click="resetQuestion">
+            Next Question
+          </button>
+        </div>
+        <br>
+        <h3>Score: {{numCorrect}}/{{currentNumber}}</h3>
+        <div v-if="done">
+          <h2>{{message}}</h2>
+          <button type="button" class="btn btn-primary" v-on:click="playAgain">
+            Play Again
+          </button>
+
+        </div>
+
+      </div>
+      <div v-else>
+        <button type="button" class="btn btn-primary" v-on:click="getQuestions">
+          Start
+        </button>
+      </div>
+    </div>
+    <p>
+      <a href="#">Github</a>
+    </p>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/script.js"></script>
+  </body>
+</html>

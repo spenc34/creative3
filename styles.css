@@ -1,0 +1,9 @@
+body {
+  font-family: 'Karma', serif;
+  text-align: center;
+  padding: 30px;
+}
+
+.btn-primary {
+  margin-top: 10px;
+}
